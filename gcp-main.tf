@@ -26,11 +26,6 @@ resource "google_sql_database_instance" "instance" {
     tier = "db-f1-micro"
   }
 
-  database_flags {
-      name  = "cloudsql.iam_authentication"
-      value = "on"
-    }  
-
   deletion_protection  = "true"
 }
 
