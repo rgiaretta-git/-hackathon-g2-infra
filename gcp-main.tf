@@ -27,6 +27,11 @@ resource "google_sql_database_instance" "instance" {
   }
 
   deletion_protection  = "true"
+
+  provisioner "local-exec" {
+    command = "mysql -u playlist-user -p 12345 playlist < Playlist.sql"
+  }
+
 }
 
 resource "google_artifact_registry_repository" "hackathon" {
