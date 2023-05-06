@@ -28,3 +28,10 @@ resource "google_sql_database_instance" "instance" {
 
   deletion_protection  = "true"
 }
+
+resource "google_artifact_registry_repository" "hackathon" {
+  location = var.region
+  repository_id = "hackathon"
+  description = "Imagens Docker"
+  format = "DOCKER"
+}
