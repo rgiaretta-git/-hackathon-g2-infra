@@ -1,17 +1,3 @@
-resource "google_artifact_registry_repository" "my-repo-2" {
-  location = var.region
-  repository_id = "hackathon-frontend"
-  description = "Imagens Docker"
-  format = "DOCKER"
-}
-
-resource "google_artifact_registry_repository" "my-repo-3" {
-  location = var.region
-  repository_id = "hackathon-backend"
-  description = "Imagens Docker"
-  format = "DOCKER"
-}
-
 resource "google_sql_database" "database" {
   name     = "playlist"
   instance = google_sql_database_instance.instance.name
