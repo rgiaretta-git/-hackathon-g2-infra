@@ -1,13 +1,13 @@
-resource "google_artifact_registry_repository" "frontend" {
+resource "google_artifact_registry_repository" "my-repo-2" {
   location = var.region
-  repository_id = "hackathon"
+  repository_id = "hackathon-frontend"
   description = "Imagens Docker"
   format = "DOCKER"
 }
 
-resource "google_artifact_registry_repository" "backend" {
+resource "google_artifact_registry_repository" "my-repo-3" {
   location = var.region
-  repository_id = "hackathon"
+  repository_id = "hackathon-backend"
   description = "Imagens Docker"
   format = "DOCKER"
 }
