@@ -26,6 +26,11 @@ resource "google_sql_database_instance" "instance" {
     tier = "db-f1-micro"
   }
 
+  database_flags {
+      name  = "cloudsql.iam_authentication"
+      value = "on"
+    }  
+
   deletion_protection  = "true"
 }
 
@@ -34,4 +39,10 @@ resource "google_artifact_registry_repository" "hackathon" {
   repository_id = "hackathon"
   description = "Imagens Docker"
   format = "DOCKER"
+}
+
+resource "google_sql_user" "users" {
+  name     = "playlist-user"
+  instance = google_sql_database_instance.instance.name
+  password = "12345"
 }
