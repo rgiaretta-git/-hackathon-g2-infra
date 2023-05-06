@@ -1,13 +1,13 @@
 resource "google_artifact_registry_repository" "frontend" {
   location = var.region
-  repository_id = "labdevops"
+  repository_id = "hackathon"
   description = "Imagens Docker"
   format = "DOCKER"
 }
 
 resource "google_artifact_registry_repository" "backend" {
   location = var.region
-  repository_id = "labdevops"
+  repository_id = "hackathon"
   description = "Imagens Docker"
   format = "DOCKER"
 }
