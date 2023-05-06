@@ -1,22 +1,3 @@
-resource "google_artifact_registry_repository" "hackathon-frontend" {
-  location = var.region
-  repository_id = "hackathon-frontend"
-  description = "Imagens Docker"
-  format = "DOCKER"
-}
-
-resource "google_artifact_registry_repository" "hackathon-backend" {
-  location = var.region
-  repository_id = "hackathon-backend"
-  description = "Imagens Docker"
-  format = "DOCKER"
-}
-
-resource "google_sql_database" "database" {
-  name     = "playlist"
-  instance = google_sql_database_instance.instance.name
-}
-
 # See versions at https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#database_version
 resource "google_sql_database_instance" "instance" {
   name             = "mysql-instance"
@@ -29,9 +10,14 @@ resource "google_sql_database_instance" "instance" {
   deletion_protection  = "true"
 }
 
-resource "google_artifact_registry_repository" "hackathon" {
+resource "google_sql_database" "database" {
+  name     = "playlist"
+  instance = google_sql_database_instance.instance.name
+}
+
+resource "google_artifact_registry_repository" "spotmusic" {
   location = var.region
-  repository_id = "hackathon"
+  repository_id = "spotmusic"
   description = "Imagens Docker"
   format = "DOCKER"
 }
